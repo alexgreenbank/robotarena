@@ -1,0 +1,14 @@
+Robots
+
+* bully
+	scan in 2 deg intervals, if find a robot launch missile, shield on and move half way to the robot (minimum 25 away)
+* evade
+	scan in 2 deg intervals, if find a robot launch missile
+* evade_plus
+	as evade but launch and move a short distance then work out where robot was ready to launch again
+* dumb
+	just sit there
+* random
+	move randomly, scan once, move again
+* corner
+	pick a random corner, go to it, then scan and launch missiles, never move from that corner

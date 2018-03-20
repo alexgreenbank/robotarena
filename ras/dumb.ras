@@ -1,0 +1,4 @@
+.start
+LDR r2,#2
+ROT r2
+JMP start

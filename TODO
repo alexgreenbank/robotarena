@@ -1,0 +1,51 @@
+License:
+	TODO - need to select a license
+
+Programs:-
+
+arena	- execute individual robot battles
+	Executes robot machine code (the product of robot assembly language)
+	Simple but powerful instruction set (heavily influenced by early ARM processors from the Acorn Archimedes)
+	TODO
+		proper prng
+			game id selection
+		make visualisaton dump optional and pipeline this through visualisation tool
+
+vis	- visualise the processing of your robot against others
+		processes the vis output and creates individual PNG frames using cairo
+		then mash the PNGs together into a movie file (see example.mp4)
+	you get to see individual CPU steps for your robot, but only the main instructions (LSR,LAUNCH,ROT,FOR) for the others
+	TODO
+		javascript version for display on webpage?
+
+daemon	- continually run combinations of robots to maximise coverage
+	makes sure every possibility of robots have been run
+	broad coverage first (i.e. all possible games of 2 including new robot, then games of 3, etc)
+	then depth (e.g. repeat game n times)
+	TODO
+		write it!
+			load all robots (to prevent file churn)
+			game id seeds the PRNG
+			needs a pool of game ids to use (these need to remain private)
+
+ras	- compile robots written in robot assembly
+
+rdas	- disassembly tool
+	TODO
+		write it!
+
+rcc	- compile from higher level language into robot assembly (.ras)
+	TODO
+		compiler from ROBOL
+			ROBOT language definition (similar to LOGO)
+		compiler from C (and any other languages)
+
+website
+	TODO
+		registration/upload
+		forum
+		visualisation against others
+			request visdump of battles (outside of daemons pool of unique game ids)
+				filters such as "battles lost to robot X"
+		visualisation does not give away programming of other robots (only external instructions LSR/LAUNCH/ROT/FOR/etc are divulged)
+			none of the internal logic is leaked

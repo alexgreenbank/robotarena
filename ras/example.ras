@@ -1,0 +1,23 @@
+-- comment
+#line comment
+.main
+	BLI blah
+	CMP r3,r4[0]
+	B main
+.blah
+	LDR r3,r2
+	MUL r5,r3,r2
+	MOV pc,lr	-- return from subroutine
+.data
+.const_onetwothreefourfive
+	INT 12345
+.const_0
+	FLOAT 0.0
+.array_foo
+	WORD 5
+.string_nl
+	STRING "\n"
+.string_blah
+	STRING "Blah "
+.stack
+#nothing from here

@@ -1,0 +1,61 @@
+# set up yes
+LDR r63,#0
+LDR r62,#1
+LDR r61,#2
+.start
+# get heading
+HED r2
+# scan at heading
+RDR r2,r3,r4
+# is it a robot?
+CMP r3,#1
+BEQ robot
+# is it a missile
+CMP r3,#2
+BEQ missile
+CMP r3,#3
+BEQ blast
+# rotate 2
+ROT r61
+B start
+
+###
+
+.robot
+# if robot
+# range is in r4
+LDR r5,r4
+# launch at max(range,25)
+CMP r5,#25
+LDRLT r5,#25
+LNC r5
+# shield on
+SHD r62
+# move forward min( range-25, range/2 )
+LDR r9,#25
+SUB r6,r4,r9
+LDR r8,r6
+DIV r7,r4,r61
+CMP r6,r7
+LDRGT r8,r7
+# r8 is now min( r6, r7 )
+# move forward that far
+FOR r8
+# shield off
+SHD r63
+# back to start
+JMP start
+
+###
+
+.missile
+# if missile laser it
+LSR r2
+JMP start
+
+###
+
+.blast
+# ???
+JMP start
+

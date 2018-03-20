@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# TODO - make me into a proper makefile
+
+gcc $* -c hash.c -o hash.o
+gcc $* -c instr.c -o instr.o
+gcc $* -c ras.c -o ras.o
+gcc $* -c prng.c -o prng.o
+gcc $* -c rob.c -o rob.o
+gcc $* -c cpu.c -o cpu.o
+gcc $* -c arena.c -o arena.o
+gcc $* instr.o ras.o prng.o hash.o -o ras
+gcc $* prng.o instr.o rob.o cpu.o arena.o hash.o -o arena -lm
+gcc $* vis.c -o vis -lm -lcairo
